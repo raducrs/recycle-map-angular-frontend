@@ -1,0 +1,16 @@
+<div class="map-container">
+
+  <div id="map" anmsLongPress (longPressed)="addNewPOI($event)" interval="300">
+    <div id="popup">
+      <anms-poi-popup [hidden]="popupHidden" (evt)="popupEvent($event)"></anms-poi-popup>
+    </div>
+  </div>
+
+  <div id="search-bar" style="position: absolute;top: 0.5em; left: 0.5em; right:45px; pointer-events: none;"
+       [style.z-index]="zIndex"
+    >
+    <anms-search [focusLost]="userInteraction"></anms-search>
+  </div>
+</div>
+
+

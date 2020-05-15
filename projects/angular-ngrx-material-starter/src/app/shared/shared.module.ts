@@ -50,6 +50,10 @@ import { faMediumM, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { BigInputComponent } from './big-input/big-input/big-input.component';
 import { BigInputActionComponent } from './big-input/big-input-action/big-input-action.component';
 import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
+import { DynamicScriptService } from './dynamic-script/dynamic-script.service';
+import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { LongDirectiveConfigService } from './directives/long-directive-config.service';
+import { LongPressDirective } from './directives/long-press.directive';
 
 @NgModule({
   imports: [
@@ -79,7 +83,8 @@ import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
   declarations: [
     BigInputComponent,
     BigInputActionComponent,
-    RtlSupportDirective
+    RtlSupportDirective,
+    LongPressDirective
   ],
   exports: [
     CommonModule,
@@ -111,7 +116,13 @@ import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
 
     BigInputComponent,
     BigInputActionComponent,
-    RtlSupportDirective
+    RtlSupportDirective,
+
+    LongPressDirective
+  ],
+  providers: [
+    DynamicScriptService,
+    { provide: HAMMER_GESTURE_CONFIG, useClass: LongDirectiveConfigService }
   ]
 })
 export class SharedModule {

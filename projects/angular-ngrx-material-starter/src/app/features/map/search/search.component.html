@@ -1,0 +1,18 @@
+<div class="entry">
+  <div class="search-input">
+    <anms-search-input rtl [placeholder]="'anms.map.search.placeholder' | translate" [value]="searchTerm" (keyup)="searchHint($event.target.value)"
+                       (keyup.enter)="search()" (keyup.escape)="clearSearch()" (onFocus)="searchBarFocused()">
+      <fa-icon icon="search"></fa-icon>
+    </anms-search-input>
+  </div>
+  <div *ngIf="showHints" class="hints-container">
+    <mat-option *ngFor="let searchHint of searchHints | async" class="hint-row">
+      <div (click)="hintSelected(searchHint)">
+        <img *ngIf="searchHint.icon" aria-hidden [src]="searchHint.icon" height="24" width="24"/>
+        <span *ngIf="!searchHint.icon" aria-hidden style="width: 24px;"></span>
+        <span class="hint-description">{{searchHint.description}}</span>
+      </div>
+
+    </mat-option>
+  </div>
+</div>

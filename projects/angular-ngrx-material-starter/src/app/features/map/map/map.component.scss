@@ -1,0 +1,24 @@
+.map-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  & #map {
+    height: 100%;
+    width: 100%;
+  }
+
+  & #search-bar {
+    // width: 100%; replaced by left and right positioning with right set at 45px since 33px (zoom buttons) + 2 * 1px border + 0.5em
+
+    & anms-search {
+      pointer-events: auto;
+    }
+  }
+}
+
+:host ::ng-deep .ol-zoom {
+  right: 0.5em;
+  top: 0.5em;
+  left: unset;
+}

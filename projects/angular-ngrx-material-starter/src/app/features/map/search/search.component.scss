@@ -1,0 +1,50 @@
+.entry {
+  max-width: 30%;
+
+  & .search-input {
+    max-width: 300px;
+  }
+  &.hints-container {
+    max-width: 100%;
+
+    & .hint-row {
+      overflow: hidden;
+      max-width: 350px;
+
+      & .hint-description {
+        margin-left: 0.5em;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  /* For mobile phones: */
+  .entry {
+    max-width: 35%;
+  }
+}
+@media only screen and (max-width: 992px) {
+  /* For mobile phones: */
+  .entry {
+    max-width: 40%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .entry {
+    max-width: 50%;
+  }
+}
+@media only screen and (max-width: 576px) {
+  /* For mobile phones: */
+  .entry {
+    max-width: 80%;
+  }
+}
+@media only screen and (max-width: 300px) {
+  /* For mobile phones: */
+  .entry {
+    max-width: 100%;
+  }
+}

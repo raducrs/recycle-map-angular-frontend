@@ -1,0 +1,9 @@
+<mat-card class="search-input" [ngClass]="{ 'has-focus': hasFocus }" matAutocompleteOrigin>
+  <input (focus)="focused()" (blur)="hasFocus = false"
+         [value]="value"
+         [placeholder]="placeholder"
+         [disabled]="disabled"
+        />
+  <ng-content></ng-content>
+</mat-card>
+

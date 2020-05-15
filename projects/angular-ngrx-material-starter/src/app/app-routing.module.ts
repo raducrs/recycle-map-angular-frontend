@@ -30,6 +30,11 @@ const routes: Routes = [
       import('./features/examples/examples.module').then(m => m.ExamplesModule)
   },
   {
+    path: 'map',
+    loadChildren: () =>
+      import('./features/map/map.module').then(m => m.MapModule)
+  },
+  {
     path: '**',
     redirectTo: 'about'
   }

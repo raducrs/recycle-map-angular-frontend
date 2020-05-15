@@ -1,0 +1,26 @@
+@import 'node_modules/@angular/material/theming';
+
+@mixin anms-search-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  .hint-row {
+    color: mat-color($foreground, text);
+    background-color: mat-color($background, card);
+    border-left: 1px solid #d7d7d7;
+    border-right: 1px solid #d7d7d7;
+    border-bottom: 1px solid #d7d7d7;
+
+    &:first-of-type {
+      border-top: 1px solid #d7d7d7; // @TODO redefine this as variable
+      margin-top: 5px;
+    }
+
+    &:hover:not(.mat-option-disabled),
+    &:focus:not(.mat-option-disabled) {
+      background: #f1f1f1; // @TODO redefine this as variable
+    }
+  }
+}
