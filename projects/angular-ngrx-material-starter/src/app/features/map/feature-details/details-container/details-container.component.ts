@@ -34,9 +34,6 @@ export class DetailsContainerComponent implements OnInit, OnChanges, OnDestroy {
   @Input()
   detailsConstructorParams: DetailsConstructorParams;
 
-  @Output()
-  evt: EventEmitter<DynamicEvent<any>>;
-
   @ViewChild(DetailContainerDirective, { static: true })
   detailsHost: DetailContainerDirective;
 
@@ -73,16 +70,7 @@ export class DetailsContainerComponent implements OnInit, OnChanges, OnDestroy {
 
     const componentRef = viewContainerRef.createComponent(componentFactory);
     (<DetailsComponent>componentRef.instance).params = constructorParams.params;
-    // @TODO check if subscription available
-    this.subscription = (<DetailsComponent>(
-      componentRef.instance
-    )).evt.subscribe(evt => this.evt.emit(evt));
   }
 
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-      this.subscription = undefined;
-    }
-  }
+  ngOnDestroy() {}
 }

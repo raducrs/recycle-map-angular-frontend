@@ -4,5 +4,4 @@ import { DynamicEvent } from './dynamic-event';
 
 export interface DetailsComponent {
   params: DetailsParam;
-  evt: EventEmitter<DynamicEvent<any>>;
 }

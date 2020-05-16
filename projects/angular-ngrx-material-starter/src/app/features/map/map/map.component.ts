@@ -32,6 +32,7 @@ import MousePosition from 'ol/control/MousePosition';
 import { createStringXY } from 'ol/coordinate';
 import Translate from 'ol/interaction/Translate';
 import { DynamicEvent } from '../feature-details/interfaces/dynamic-event';
+import { DynamicComponentEventsService } from '../feature-details/dynamic-component-events.service';
 
 @Component({
   selector: 'anms-map',
@@ -63,7 +64,8 @@ export class MapComponent implements OnInit, AfterViewInit {
     private router: Router,
     private locationStrategy: LocationStrategy,
     private route: ActivatedRoute,
-    private searchService: MapSearchService
+    private searchService: MapSearchService,
+    private dynCmpEvtsService: DynamicComponentEventsService
   ) {}
 
   ngOnInit(): void {
@@ -127,6 +129,16 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.zIndex = 30000;
 
     this.initEditTransform();
+
+    // @TODO replace with chainof responsability
+    this.dynCmpEvtsService.eventObserver.subscribe(evt => {
+      console.log(evt);
+      if (evt.type === 'suppress-new-feature') {
+        this.editRichFeature = undefined;
+        this.editReplace();
+        this.popupHidden = true;
+      }
+    });
   }
 
   ngAfterViewInit(): void {}
@@ -369,11 +381,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     // });
   }
 
-  popupEvent(evt: DynamicEvent<any>) {
-    if (evt.type === 'new-feature-suppress') {
-      this.editRichFeature = undefined;
-    }
-  }
+  popupEvent() {}
 
   initSearchOverlay() {
     const element = document.getElementById('search-bar');

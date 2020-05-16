@@ -1,0 +1,16 @@
+.centered-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+
+  .check-button {
+    &:hover {
+      color: #35e835;
+    }
+  }
+  .remove-button {
+    &:hover {
+      color: red;
+    }
+  }
+}

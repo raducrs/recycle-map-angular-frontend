@@ -43,7 +43,12 @@ import {
   faLightbulb,
   faWindowMaximize,
   faStream,
-  faBook
+  faBook,
+  faCircle,
+  faDotCircle,
+  faHighlighter,
+  faHandHoldingHeart,
+  faRecycle
 } from '@fortawesome/free-solid-svg-icons';
 import { faMediumM, faGithub } from '@fortawesome/free-brands-svg-icons';
 
@@ -54,6 +59,8 @@ import { DynamicScriptService } from './dynamic-script/dynamic-script.service';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { LongDirectiveConfigService } from './directives/long-directive-config.service';
 import { LongPressDirective } from './directives/long-press.directive';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   imports: [
@@ -77,6 +84,8 @@ import { LongPressDirective } from './directives/long-press.directive';
     MatSnackBarModule,
     MatSlideToggleModule,
     MatDividerModule,
+    MatDialogModule,
+    MatAutocompleteModule,
 
     FontAwesomeModule
   ],
@@ -111,6 +120,8 @@ import { LongPressDirective } from './directives/long-press.directive';
     MatSliderModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatDialogModule,
+    MatAutocompleteModule,
 
     FontAwesomeModule,
 
@@ -146,7 +157,14 @@ export class SharedModule {
       faLightbulb,
       faWindowMaximize,
       faStream,
-      faBook
+      faBook,
+      faTimes,
+      faPlus,
+      faCircle,
+      faDotCircle,
+      faHighlighter,
+      faHandHoldingHeart,
+      faRecycle
     );
   }
 }

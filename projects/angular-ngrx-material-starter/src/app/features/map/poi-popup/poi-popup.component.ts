@@ -20,14 +20,7 @@ export class PoiPopupComponent implements OnInit {
     component: 'newcomp'
   };
 
-  @Output()
-  evt: EventEmitter<DynamicEvent<any>>;
-
   constructor() {}
 
   ngOnInit(): void {}
-
-  eventFired(event: DynamicEvent<any>) {
-    this.evt.emit(event);
-  }
 }

@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Un nou punct de reciclare</h1>
+<div mat-dialog-content>
+  <p>Ce se recicleaza aici?</p>
+  <mat-chip-list [selectable]="false" cdkFocusInitial>
+    <mat-chip *ngFor="let element of topElements"
+              [removable]="false"
+              (click)="onToggle(element)"
+              class="my-chip"
+              [ngClass]="element.styleClass"
+              [class.selected]="element.isSelected"
+              [selectable]="false"
+              [matTooltip]="element.name">
+      <div class="chip-content-container">
+        <div class="chip-content-name">
+          <fa-icon icon="dot-circle" class="inline-icon" [style.color]="element.color"></fa-icon> {{ element.name }}
+
+        </div>
+        <div class="chip-content-icon">
+          <fa-icon [icon]="element.isSelected ? 'times' : 'plus'"
+                   [style.color]="element.isSelected ? 'red' : '#35e835'" matSuffix></fa-icon>
+        </div>
+
+      </div>
+    </mat-chip>
+    <mat-chip class="more"
+              [removable]="false"
+              [selectable]="false"
+              (click)="onNoClick">
+      <fa-icon  class="inline-icon" matPrefix icon="search"></fa-icon> Altele
+    </mat-chip>
+  </mat-chip-list>
+
+
+  <p>What's your favorite animal?</p>
+  <mat-form-field>
+    <mat-label>Favorite Animal</mat-label>
+    <input matInput>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Abandoneaza</button>
+  <button mat-button >Adauga</button>
+</div>

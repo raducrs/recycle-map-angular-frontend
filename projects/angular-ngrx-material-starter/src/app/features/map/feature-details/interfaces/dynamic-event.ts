@@ -1,3 +1,3 @@
-export interface DynamicEvent<T> {
-  type: T;
+export interface DynamicEvent {
+  type: string;
 }

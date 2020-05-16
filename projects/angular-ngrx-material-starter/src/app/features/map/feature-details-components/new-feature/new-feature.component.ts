@@ -9,6 +9,9 @@ import { DetailsComponent } from '../../feature-details/interfaces/details-compo
 import { DetailsParam } from '../../feature-details/interfaces/details-param';
 import { DynamicComponentEventsService } from '../../feature-details/dynamic-component-events.service';
 import { DynamicEvent } from '../../feature-details/interfaces/dynamic-event';
+import { MatDialog } from '@angular/material/dialog';
+import { NewFeatureDialogComponent } from '../dialogs/new-feature-dialog/new-feature-dialog.component';
+import { TypesRecycableDialogComponent } from '../dialogs/types-recycable-dialog/types-recycable-dialog.component';
 
 @Component({
   selector: 'anms-new-feature',
@@ -20,15 +23,23 @@ export class NewFeatureComponent implements OnInit, DetailsComponent {
   @Input()
   params: DetailsParam;
 
-  evt: EventEmitter<DynamicEvent<string>>;
-
-  constructor(private eventsService: DynamicComponentEventsService) {
-    this.evt = new EventEmitter<DynamicEvent<string>>();
-  }
+  constructor(
+    private eventsService: DynamicComponentEventsService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {}
 
+  onAddNew() {
+    const dialogRef = this.dialog.open(TypesRecycableDialogComponent, {});
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+    });
+  }
+
   onSuppress() {
-    this.evt.emit({ type: 'new-feature-suppress' });
+    console.log('suppress');
+    this.eventsService.fireEvent({ type: 'suppress-new-feature' });
   }
 }

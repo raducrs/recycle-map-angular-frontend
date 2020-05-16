@@ -1,0 +1,84 @@
+<div mat-dialog-title>
+  <h1 mat-dialog-title>Ce se recicleaza aici?</h1>
+  <div class="search-bar-container">
+    <fa-icon matPrefix icon="search" class="search-icon"></fa-icon>
+    <input type="text"
+           placeholder="Cauta sau creaza"
+           [value]="searchTerm"
+           (keyup)="changeFilter($event.target.value)"
+           (keyup.escape)="clearFilter()">
+  </div>
+</div>
+
+<div mat-dialog-content class="chip-list-container">
+  <p>Doar categoria va fi selectata</p>
+  <mat-chip-list  [selectable]="false" cdkFocusInitial>
+    <mat-chip *ngIf="custom.isSelected || searchTerm !== ''"
+              class="my-chip custom"
+              [removable]="false"
+              [selectable]="false"
+              [class.selected]="custom.isSelected"
+              (click)="onToggleCustom()"
+              [matTooltip]="custom.isSelected ? custom.name : searchTerm">
+      <div class="chip-content-container">
+        <div class="chip-content-name">
+          <fa-icon [icon]="custom.isSelected ? 'dot-circle' : 'highlighter'" class="inline-icon"></fa-icon>
+          {{custom.isSelected ? custom.name : searchTerm}}
+        </div>
+        <div class="chip-content-icon">
+          <fa-icon [icon]="custom.isSelected ? 'times' : 'plus'"
+                   [style.color]="custom.isSelected ? 'red' : '#35e835'" matSuffix></fa-icon>
+        </div>
+
+      </div>
+    </mat-chip>
+
+    <mat-chip *ngFor="let element of selectedCategories"
+              [removable]="false"
+              (click)="onUnselect(element)"
+              class="my-chip category"
+              [ngClass]="element.styleClass"
+              [class.selected]="element.isSelected"
+              [selectable]="false"
+              [matTooltip]="element.name">
+      <div class="chip-content-container">
+        <div class="chip-content-name">
+          <fa-icon [icon]="element.icon" class="inline-icon" [style.color]="element.color"></fa-icon> {{ element.name }}
+
+        </div>
+        <div class="chip-content-icon">
+          <fa-icon [icon]="element.isSelected ? 'times' : 'plus'"
+                   [style.color]="element.isSelected ? 'red' : '#35e835'" matSuffix></fa-icon>
+        </div>
+
+      </div>
+    </mat-chip>
+    <mat-chip *ngFor="let element of filteredElements"
+              [removable]="false"
+              (click)="onSelect(element)"
+              class="my-chip"
+              [ngClass]="element.styleClass"
+              [class.selected]="element.isSelected"
+              [selectable]="false"
+              [matTooltip]="element.name"
+              [class.category]="element.isCategory">
+      <div class="chip-content-container">
+        <div class="chip-content-name">
+          <fa-icon [icon]="element.icon" class="inline-icon" [style.color]="element.color"></fa-icon> {{ element.name }}
+
+        </div>
+        <div class="chip-content-icon">
+          <fa-icon [icon]="element.isSelected ? 'times' : 'plus'"
+                   [style.color]="element.isSelected ? 'red' : '#35e835'" matSuffix></fa-icon>
+        </div>
+
+      </div>
+    </mat-chip>
+
+  </mat-chip-list>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Abandoneaza</button>
+  <button mat-button (click)="onYesClick()">Gata</button>
+</div>

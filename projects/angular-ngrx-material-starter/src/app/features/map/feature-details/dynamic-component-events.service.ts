@@ -1,21 +1,22 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { DynamicEvent } from './interfaces/dynamic-event';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DynamicComponentEventsService implements OnDestroy {
-  private eventObserver: BehaviorSubject<any>;
+  eventObserver: BehaviorSubject<DynamicEvent>;
 
   constructor() {
-    this.eventObserver = new BehaviorSubject<any>({});
+    this.eventObserver = new BehaviorSubject<DynamicEvent>({ type: 'blank' });
   }
 
   onEvent(viewName, eventName: string, eventHandler) {
     // @TODO develop this
   }
 
-  fireEvent(event: any) {
+  fireEvent(event: DynamicEvent) {
     this.eventObserver.next(event);
   }
 

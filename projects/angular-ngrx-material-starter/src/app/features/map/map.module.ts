@@ -10,6 +10,8 @@ import { CoreModule } from '../../core/core.module';
 import { NewFeatureComponent } from './feature-details-components/new-feature/new-feature.component';
 import { FeatureDetailsModule } from './feature-details/feature-details.module';
 import { DYNAMIC_COMPONENT_MAP } from './feature-details/details-component-map';
+import { NewFeatureDialogComponent } from './feature-details-components/dialogs/new-feature-dialog/new-feature-dialog.component';
+import { TypesRecycableDialogComponent } from './feature-details-components/dialogs/types-recycable-dialog/types-recycable-dialog.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { DYNAMIC_COMPONENT_MAP } from './feature-details/details-component-map';
     PoiPopupComponent,
     SearchComponent,
     SearchInputComponent,
-    NewFeatureComponent
+    NewFeatureComponent,
+    NewFeatureDialogComponent,
+    TypesRecycableDialogComponent
   ],
   imports: [CommonModule, SharedModule, MapRoutingModule, FeatureDetailsModule],
   entryComponents: [NewFeatureComponent],

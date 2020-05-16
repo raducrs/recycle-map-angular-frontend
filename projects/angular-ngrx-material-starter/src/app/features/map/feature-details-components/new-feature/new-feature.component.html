@@ -1,20 +1,13 @@
   <mat-card>
-    <mat-card-title>
-        Hartie
+    <mat-card-title style="text-align: center">
+        Adauga
     </mat-card-title>
-    <mat-card-subtitle rtl>
-        24/7
-    </mat-card-subtitle>
-    Mai multa informatie
-    <mat-card-actions>
-      <a  mat-icon-button [href]="" target="_blank">
-        <fa-icon [icon]="['fab','github']"></fa-icon>
-      </a>
-      <a mat-button [href]="" target="_blank">
-        <fa-icon icon="book"></fa-icon>
-      </a>
-      <a mat-button [href]="" target="_blank" (click)="onSuppress()">
-        <fa-icon [icon]="['fab','medium-m']"></fa-icon>
-      </a>
+    <mat-card-actions class="centered-buttons">
+      <button  mat-button class="check-button" (click)="onAddNew()">
+        <fa-icon icon="check" ></fa-icon>
+      </button>
+      <button mat-button class="remove-button" (click)="onSuppress()">
+        <fa-icon icon="times"></fa-icon>
+      </button>
     </mat-card-actions>
   </mat-card>

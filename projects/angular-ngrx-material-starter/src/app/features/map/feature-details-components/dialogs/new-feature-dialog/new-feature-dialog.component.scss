@@ -1,0 +1,50 @@
+.my-chip {
+  width: 25%;
+  min-width: 175px;
+  overflow: hidden;
+  text-align: center;
+  &.pregenerated {
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  &.selected {
+    background-color: #e0e0e0;
+    color: rgba(0, 0, 0, 0.87);
+  }
+}
+
+.more {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.87);
+  border: 1px solid #e0e0e0;
+}
+
+.chip-content-container {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+
+  .chip-content-name {
+    display: flex;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 80%;
+  }
+
+  .chip-content-icon {
+    display: flex;
+    margin-left: auto;
+  }
+}
+
+.inline-icon {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+:host ::ng-deep .mat-standard-chip:focus::after {
+  opacity: 0 !important;
+}
