@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-lg-2 d-none d-lg-block no-padding">
+    <ng-content select="[leftSideBar]"></ng-content>
+  </div>
+  <div class="col-lg-8 col-md-8 col-12 no-padding">
+    <div class="row row-margin">
+      <ng-content select="[firstContent]"></ng-content>
+    </div>
+    <div class="row row-margin d-block d-md-none">
+      <ng-content select="[addContent]"></ng-content>
+    </div>
+    <div class="row row-margin">
+      <ng-content select="[secondContent]"></ng-content>
+    </div>
+  </div>
+  <div class="col-lg-2 col-md-4 col-12 no-padding">
+    <div class="row row-margin">
+      <ng-content select="[rightSideBar]"></ng-content>
+    </div>
+    <div class="row row-margin d-none d-md-block no-padding">
+      <ng-content select="[addSideBar]"></ng-content>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="card"> <!-- col-12 col-sm-6 col-md-3 col-lg-2-->
+
+  <div class="view overlay card-img">
+    <img class="card-img-top" src="{{ cardContent?.img || 'https://mdbootstrap.com/img/Photos/Others/food.jpg' }}">
+    <a>
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <div class="action-bar transition-long">
+    <button mat-mini-fab color="primary" [ngClass]="'bg-contrast-'+cardContent?.color"
+            *ngIf="optionsOpened">
+      <fa-icon icon="reply"></fa-icon>
+    </button>
+    <button mat-mini-fab color="primary" [ngClass]="'bg-contrast-'+cardContent?.color"
+            *ngIf="optionsOpened">
+      <fa-icon icon="map-marked-alt"></fa-icon>
+    </button>
+    <button mat-mini-fab color="primary" [ngClass]="'bg-contrast-'+cardContent?.color" (click)="optionsOpened = !optionsOpened">
+      <fa-icon icon="chevron-left" [hidden]="optionsOpened"></fa-icon>
+      <!--      <fa-icon [icon]="getIconForType(cardContent?.type || '')"></fa-icon>-->
+      <fa-icon icon="chevron-right" [hidden]="!optionsOpened"></fa-icon>
+    </button>
+  </div>
+
+  <div class="card-title transition-long">
+    <h4 class="card-title-large" [ngClass]="'fg-contrast-'+cardContent?.color">{{ cardContent?.title }}</h4>
+  </div>
+
+
+  <div class="card-body transition-long">
+
+    <hr>
+
+    <p class="card-text">{{ cardContent?.description }}</p>
+
+    <div class="more-text transition-long">
+      <button mat-button class="more-btn">Citeste mai mult</button>
+    </div>
+
+  </div>
+
+
+  <div class="rounded-bottom theme-bg-color card-footer transition-long" [ngClass]="'bg-contrast-'+cardContent?.color">
+    <div><fa-icon icon="map-marker-alt"></fa-icon> {{ cardContent?.stats }}</div>
+    <div class="follow transition" [ngClass]="'bg-contrast-'+cardContent?.color">
+      <fa-icon style=" margin-bottom: 40px; margin-right: 30px;" icon="reply"></fa-icon>
+    </div>
+  </div>
+
+  <div class="card-circle transition" [ngClass]="'bg-'+cardContent?.color"></div>
+</div>

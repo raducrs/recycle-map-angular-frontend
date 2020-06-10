@@ -3,6 +3,7 @@
 @import '~bootstrap/scss/bootstrap-reboot';
 @import '~bootstrap/scss/bootstrap-grid';
 @import 'styles-reset';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 @import '~@angular/material/theming';
 
@@ -25,6 +26,11 @@
 @import './app/features/examples/examples/examples.component.scss-theme';
 @import './app/features/map/search-input/search-input.component.scss-theme';
 @import './app/features/map/search/search.component.scss-theme';
+@import './app/features/map/tab-navigation/tab-navigation/tab-item/tab-item.component.scss-theme';
+@import './app/features/map/tab-navigation/tab-navigation/tab-navigation.component.scss-theme';
+@import 'projects/angular-ngrx-material-starter/src/app/features/map/feature-details-components/new-feature-dialogs/adaptable-stepper/adaptable-stepper.component.scss-theme';
+@import 'projects/angular-ngrx-material-starter/src/app/features/map/feature-details-components/new-feature-dialogs/location-tab/location-tab.component.scss-theme';
+@import 'projects/angular-ngrx-material-starter/src/app/features/map/feature-details-components/new-feature-dialogs/user-tab/user-tab.component.scss-theme';
 
 @mixin custom-components-theme($theme) {
   @include anms-styles-reset-theme($theme);
@@ -39,6 +45,11 @@
   @include anms-examples-component-theme($theme);
   @include anms-search-input-component-theme($theme);
   @include anms-search-component-theme($theme);
+  @include anms-tab-item-component-theme($theme);
+  @include anms-tab-navigation-component-theme($theme);
+  @include anms-adaptable-stepper-component-theme($theme);
+  @include anms-location-tab-component-theme($theme);
+  @include anms-user-tab-component-theme($theme);
 }
 
 .default-theme {

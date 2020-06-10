@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MapComponent } from './map/map.component';
-import { FeatureDetailsModule } from './feature-details/feature-details.module';
+import { NewFeatureDialogsModule } from './feature-details-components/new-feature-dialogs/new-feature-dialogs.module';
 
 const routes: Routes = [
   {
     path: '',
     component: MapComponent,
     data: { title: 'anms.menu.settings' }
+  },
+  {
+    path: 'feature',
+    loadChildren: () => NewFeatureDialogsModule
   }
 ];
 

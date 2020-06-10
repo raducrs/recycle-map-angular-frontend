@@ -1,0 +1,31 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.full-width-input-field {
+  margin-left: 8px; // to match .mat-input-field + .mat-input-field { margin-left: 8px }
+  width: 100%;
+}
+.flex-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  & .side-by-side {
+    max-width: 300px;
+  }
+}
+
+mat-checkbox {
+  margin-left: 8px;
+}

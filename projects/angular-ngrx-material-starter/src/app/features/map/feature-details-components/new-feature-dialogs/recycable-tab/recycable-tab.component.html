@@ -1,0 +1,29 @@
+
+<mat-chip-list [selectable]="false" cdkFocusInitial>
+  <mat-chip *ngFor="let element of elementPool"
+            [removable]="false"
+            (click)="onToggle(element)"
+            class="my-chip"
+            [ngClass]="element.styleClass"
+            [class.selected]="element.isSelected"
+            [selectable]="false"
+            [matTooltip]="element.name">
+    <div class="chip-content-container">
+      <div class="chip-content-name">
+        <fa-icon [icon]="element.icon" class="inline-icon" [style.color]="element.color"></fa-icon> {{ element.name }}
+
+      </div>
+      <div class="chip-content-icon">
+        <fa-icon [icon]="element.isSelected ? 'times' : 'plus'"
+                 [style.color]="element.isSelected ? 'red' : '#35e835'" matSuffix></fa-icon>
+      </div>
+
+    </div>
+  </mat-chip>
+  <mat-chip class="more"
+            [removable]="false"
+            [selectable]="false"
+            (click)="onSearchMore()">
+    <fa-icon  class="inline-icon" matPrefix icon="search"></fa-icon> Altele
+  </mat-chip>
+</mat-chip-list>

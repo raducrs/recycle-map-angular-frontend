@@ -1,0 +1,17 @@
+@import 'node_modules/@angular/material/theming';
+
+@mixin anms-tab-navigation-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  .tabs-container-theme {
+    background-color: mat-color($primary, text);
+    color: white;
+  }
+
+  .tabs-container-border-theme {
+    border-color: mat-color($primary, text);
+  }
+}

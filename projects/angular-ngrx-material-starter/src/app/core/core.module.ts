@@ -76,6 +76,7 @@ import {
   faInstagram,
   faYoutube
 } from '@fortawesome/free-brands-svg-icons';
+import { HammerModule } from '@angular/platform-browser';
 
 export {
   TitleService,
@@ -121,6 +122,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatTooltipModule,
     MatSnackBarModule,
     MatButtonModule,
+
+    HammerModule, // https://github.com/angular/angular/issues/35547
 
     // ngrx
     StoreModule.forRoot(reducers, { metaReducers }),
@@ -169,7 +172,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 
     // 3rd party
     FontAwesomeModule,
-    TranslateModule
+    TranslateModule,
+
+    HammerModule
   ]
 })
 export class CoreModule {

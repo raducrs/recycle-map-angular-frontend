@@ -1,0 +1,260 @@
+<mat-radio-group [value]="selection">
+  <mat-accordion class="example-headers-align" multi="false" hideToggle="true">
+    <mat-expansion-panel (opened)="selectedOption('container')">
+      <mat-expansion-panel-header >
+        <mat-panel-title>
+          <mat-radio-button value="container"><span [class.option-selected]="selection === 'container'">Container</span></mat-radio-button>
+        </mat-panel-title>
+        <mat-panel-description>
+          <span></span>
+          <span [class.option-selected]="selection === 'container'"><fa-icon icon="trash"></fa-icon></span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field class="full-width-input-field" >
+        <mat-label>Proprietar</mat-label>
+        <input matInput #inputContainerOwner maxlength="50" placeholder="Ex. Primaria Sector 5 Bucuresti">
+        <mat-hint align="end">{{inputContainerOwner.value?.length || 0}}/50</mat-hint>
+      </mat-form-field>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="selectedOption('shop')">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-radio-button value="shop" ><span [class.option-selected]="selection === 'shop'">Magazin</span></mat-radio-button>
+        </mat-panel-title>
+        <mat-panel-description>
+          <span></span>
+          <span [class.option-selected]="selection === 'shop'"><fa-icon icon="shopping-cart"></fa-icon></span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field">
+          <mat-label>Nume</mat-label>
+          <input matInput #inputShopName maxlength="50" placeholder="Ex. Carefour Militari">
+          <mat-hint align="end">{{inputShopName.value?.length || 0}}/50</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Luni-Vineri - Deschidere</mat-label>
+          <input matInput type="time" #inputShopOpeningMF maxlength="50" placeholder="8 AM">
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Luni-Vineri - Inchidere</mat-label>
+          <input matInput type="time" #inputShopClosingMF maxlength="50" placeholder="8 PM">
+        </mat-form-field>
+
+      </div>
+
+
+      <div class="flex-container">
+        <mat-checkbox (change)="shopSameSaturday = $event.checked" [disabled]="shopClosedSaturday">Acelasi program sambata</mat-checkbox>
+        <mat-checkbox (change)="shopClosedSaturday = $event.checked" [disabled]="shopSameSaturday">Inchis sambata</mat-checkbox>
+      </div>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Sambata - Deschidere</mat-label>
+          <input matInput type="time" #inputShopOpeningSat maxlength="50" placeholder="8 AM" [disabled]="shopSameSaturday || shopClosedSaturday">
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Sambata - Inchidere</mat-label>
+          <input matInput type="time" #inputShopClosingSat maxlength="50" placeholder="8 PM" [disabled]="shopSameSaturday || shopClosedSaturday">
+        </mat-form-field>
+      </div>
+
+
+      <div class="flex-container">
+        <mat-checkbox (change)="shopSameSunday = $event.checked" [disabled]="shopClosedSunday">Acelasi program duminica</mat-checkbox>
+        <mat-checkbox (change)="shopClosedSunday = $event.checked" [disabled]="shopSameSunday">Inchis Duminica</mat-checkbox>
+      </div>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Duminica - Deschidere</mat-label>
+          <input matInput type="time" #inputShopOpeningSun maxlength="50" placeholder="8 AM" [disabled]="shopSameSunday || shopClosedSunday">
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Duminica - Inchidere</mat-label>
+          <input matInput type="time" #inputShopClosingSun maxlength="50" placeholder="8 PM" [disabled]="shopSameSunday || shopClosedSunday">
+        </mat-form-field>
+      </div>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field">
+          <mat-label>Program - (Experimental)</mat-label>
+          <textarea matInput  #inputShopFreeText placeholder="Ex. L-V: 8-18, S: 10-17, D: Inchis" maxlength="200"></textarea>
+          <mat-hint>{{inputShopFreeText.value ? inputShopFreeText.value.length + '/200' : 'Ex. L-V: 8-18, S: 10-17, D: Inchis' }}</mat-hint>
+        </mat-form-field>
+
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="selectedOption('recycleCenter')">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-radio-button value="recycleCenter"><span [class.option-selected]="selection === 'recycleCenter'">Centru reciclare</span></mat-radio-button>
+        </mat-panel-title>
+        <mat-panel-description>
+          <span></span>
+          <span [class.option-selected]="selection === 'recycleCenter'"><fa-icon icon="industry"></fa-icon></span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field">
+          <mat-label>Nume</mat-label>
+          <input matInput #inputRecycleCenterName maxlength="50" placeholder="Ex. Centru Reciclare Craiova">
+          <mat-hint align="end">{{inputRecycleCenterName.value?.length || 0}}/50</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Telefon - fix</mat-label>
+          <input matInput type="tel" #inputRecycleCenterPhoneLandline maxlength="50" placeholder="02xxxxxxx">
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Telefon - mobil</mat-label>
+          <input matInput type="tel" #inputRecycleCenterPhoneMobile maxlength="50" placeholder="07xxxxxx">
+        </mat-form-field>
+
+      </div>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" #inputRecycleCenterEmail maxlength="50" placeholder="contact@exemplu.ro">
+        </mat-form-field>
+      </div>
+
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Luni-Vineri - Deschidere</mat-label>
+          <input matInput type="time" #inputRecycleCenterOpeningMF maxlength="50" placeholder="8 AM">
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Luni-Vineri - Inchidere</mat-label>
+          <input matInput type="time" #inputRecycleCenterClosingMF maxlength="50" placeholder="8 PM">
+        </mat-form-field>
+
+      </div>
+
+
+      <div class="flex-container">
+        <mat-checkbox (change)="recycleCenterSameSaturday = $event.checked" [disabled]="recycleCenterClosedSaturday">Acelasi program sambata</mat-checkbox>
+        <mat-checkbox (change)="recycleCenterClosedSaturday = $event.checked" [disabled]="recycleCenterSameSaturday">Inchis sambata</mat-checkbox>
+      </div>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Sambata - Deschidere</mat-label>
+          <input matInput type="time" #inputRecycleCenterOpeningSat maxlength="50" placeholder="8 AM" [disabled]="recycleCenterSameSaturday || recycleCenterClosedSaturday">
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Sambata - Inchidere</mat-label>
+          <input matInput type="time" #inputRecycleCenterClosingSat maxlength="50" placeholder="8 PM" [disabled]="recycleCenterSameSaturday || recycleCenterClosedSaturday">
+        </mat-form-field>
+      </div>
+
+
+      <div class="flex-container">
+        <mat-checkbox (change)="recycleCenterSameSunday = $event.checked" [disabled]="recycleCenterClosedSunday">Acelasi program duminica</mat-checkbox>
+        <mat-checkbox (change)="recycleCenterClosedSunday = $event.checked" [disabled]="recycleCenterSameSunday">Inchis Duminica</mat-checkbox>
+      </div>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Duminica - Deschidere</mat-label>
+          <input matInput type="time" #inputRecycleCenterOpeningSun maxlength="50" placeholder="8 AM" [disabled]="recycleCenterSameSunday || recycleCenterClosedSunday">
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Duminica - Inchidere</mat-label>
+          <input matInput type="time" #inputRecycleCenterClosingSun maxlength="50" placeholder="8 PM" [disabled]="recycleCenterSameSunday || recycleCenterClosedSunday">
+        </mat-form-field>
+      </div>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field">
+          <mat-label>Program - (Experimental)</mat-label>
+          <textarea matInput  #inputRecycleCenterFreeText placeholder="Ex. L-V: 8-18, S: 10-17, D: Inchis" maxlength="200"></textarea>
+          <mat-hint>{{inputRecycleCenterFreeText.value ? inputRecycleCenterFreeText.value.length + '/200' : 'Ex. L-V: 8-18, S: 10-17, D: Inchis' }}</mat-hint>
+        </mat-form-field>
+
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="selectedOption('ngo')">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-radio-button value="ngo"><span [class.option-selected]="selection === 'ngo'">ONG</span></mat-radio-button>
+        </mat-panel-title>
+        <mat-panel-description>
+          <span></span>
+          <span [class.option-selected]="selection === 'ngo'"><fa-icon icon="hand-holding-heart"></fa-icon></span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field">
+          <mat-label>Nume</mat-label>
+          <input matInput #inputNGOName maxlength="50" placeholder="Ex. Salvati Copii - Bucuresti">
+          <mat-hint align="end">{{inputNGOName.value?.length || 0}}/50</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Telefon - fix</mat-label>
+          <input matInput type="tel" #inputNGOPhoneLandline maxlength="50" placeholder="02xxxxxxx">
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Telefon - mobil</mat-label>
+          <input matInput type="tel" #inputNGOPhoneMobile maxlength="50" placeholder="07xxxxxx">
+        </mat-form-field>
+
+      </div>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field side-by-side">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" #inputNGOEmail maxlength="50" placeholder="contact@exemplu.ro">
+        </mat-form-field>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="selectedOption('others')">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-radio-button value="others"><span [class.option-selected]="selection === 'others'">Altele</span></mat-radio-button>
+        </mat-panel-title>
+        <mat-panel-description>
+          <span></span>
+          <span [class.option-selected]="selection === 'others'"><fa-icon icon="question"></fa-icon></span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field">
+          <mat-label>Descriere</mat-label>
+          <textarea matInput  #inputOtherFreeText placeholder="Ex. Sticla,fier colectam" maxlength="200"></textarea>
+          <mat-hint>{{inputOtherFreeText.value ? inputOtherFreeText.value.length + '/200' : 'Ex. Sticla,fier colectam' }}</mat-hint>
+        </mat-form-field>
+
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-radio-group>

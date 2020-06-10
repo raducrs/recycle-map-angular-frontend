@@ -1,0 +1,76 @@
+<mat-radio-group [value]="selection">
+  <mat-accordion class="example-headers-align" multi="false" hideToggle="true">
+    <mat-expansion-panel (opened)="selectedOption('anonymous')">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-radio-button value="anonymous"><span [class.option-selected]="selection === 'anonymous'">Anonim</span></mat-radio-button>
+        </mat-panel-title>
+        <mat-panel-description>
+          <span></span>
+          <span [class.option-selected]="selection === 'anonymous'"><fa-icon icon="user-ninja"></fa-icon></span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="selectedOptionIfLoggedIn()" #userPanel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-radio-button value="registered" [disabled]="userNotLoggedin"><span [class.option-selected]="selection === 'registered'">{{userNotLoggedin ? 'Contul meu' : inputEmailLogIn.value}} </span></mat-radio-button>
+        </mat-panel-title>
+        <mat-panel-description>
+          <span></span>
+          <span [class.option-selected]="selection === 'registered'"><fa-icon icon="user-circle"></fa-icon></span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field">
+          <mat-label>Adresa email</mat-label>
+          <input matInput type="email" #inputEmailLogIn maxlength="50" placeholder="super.reciclatorul@exemplu.com">
+        </mat-form-field>
+      </div>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field">
+          <mat-label>Parola</mat-label>
+          <input matInput type="password" #inputPasswordLogin maxlength="50" placeholder="super.reciclatorul@exemplu.com">
+        </mat-form-field>
+      </div>
+
+      <div class="prev-next-btns-container">
+        <button mat-button mat-flat-button color="primary" (click)="loginUser()">Login</button>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="selectedOption('new')">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-radio-button value="new"><span [class.option-selected]="selection === 'new'">Cont nou</span></mat-radio-button>
+        </mat-panel-title>
+        <mat-panel-description>
+          <span></span>
+          <span [class.option-selected]="selection === 'new'"><fa-icon icon="user-plus"></fa-icon></span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field">
+          <mat-label>Nume cont (public)</mat-label>
+          <input matInput #inputName maxlength="50" placeholder="SuperReciclatorul">
+          <mat-hint align="end">{{inputName.value ? inputName.value.length + '/50' : 'Va fi publicat!' }}</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="flex-container">
+        <mat-form-field class="full-width-input-field">
+          <mat-label>Email (privat)</mat-label>
+          <input matInput type="email" #inputEmail maxlength="50" placeholder="super.reciclatorul@exemplu.com">
+          <mat-hint align="end">{{inputEmail.value ? inputEmail.value.length + '/50' : 'Nu va fi publicat!' }}</mat-hint>
+        </mat-form-field>
+      </div>
+    </mat-expansion-panel>
+
+
+
+  </mat-accordion>
+</mat-radio-group>

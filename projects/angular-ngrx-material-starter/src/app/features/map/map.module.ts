@@ -10,8 +10,13 @@ import { CoreModule } from '../../core/core.module';
 import { NewFeatureComponent } from './feature-details-components/new-feature/new-feature.component';
 import { FeatureDetailsModule } from './feature-details/feature-details.module';
 import { DYNAMIC_COMPONENT_MAP } from './feature-details/details-component-map';
-import { NewFeatureDialogComponent } from './feature-details-components/dialogs/new-feature-dialog/new-feature-dialog.component';
-import { TypesRecycableDialogComponent } from './feature-details-components/dialogs/types-recycable-dialog/types-recycable-dialog.component';
+import { NewFeatureDialogComponent } from './feature-details-components/new-feature-dialogs/new-feature-dialog/new-feature-dialog.component';
+import { TypesRecycableDialogComponent } from './feature-details-components/new-feature-dialogs/types-recycable-dialog/types-recycable-dialog.component';
+import { RecycableTabComponent } from './feature-details-components/new-feature-dialogs/recycable-tab/recycable-tab.component';
+import { TabNavigationModule } from './tab-navigation/tab-navigation.module';
+import { AdaptableStepperComponent } from './feature-details-components/new-feature-dialogs/adaptable-stepper/adaptable-stepper.component';
+import { LocationTabComponent } from './feature-details-components/new-feature-dialogs/location-tab/location-tab.component';
+import { NewFeatureDialogsModule } from './feature-details-components/new-feature-dialogs/new-feature-dialogs.module';
 
 @NgModule({
   declarations: [
@@ -19,11 +24,15 @@ import { TypesRecycableDialogComponent } from './feature-details-components/dial
     PoiPopupComponent,
     SearchComponent,
     SearchInputComponent,
-    NewFeatureComponent,
-    NewFeatureDialogComponent,
-    TypesRecycableDialogComponent
+    NewFeatureComponent
   ],
-  imports: [CommonModule, SharedModule, MapRoutingModule, FeatureDetailsModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    MapRoutingModule,
+    FeatureDetailsModule,
+    TabNavigationModule
+  ],
   entryComponents: [NewFeatureComponent],
   providers: [
     {

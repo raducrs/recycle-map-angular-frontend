@@ -394,4 +394,8 @@ export class MapComponent implements OnInit, AfterViewInit {
     });
     this.map.addOverlay(searchBar);
   }
+
+  onDestroy() {
+    // @TODO cleanup resources - map and location are not destroyed on navigation away
+  }
 }

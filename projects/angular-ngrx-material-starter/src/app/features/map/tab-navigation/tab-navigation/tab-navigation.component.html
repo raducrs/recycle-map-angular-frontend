@@ -1,0 +1,36 @@
+<div class="tabs-wrapper">
+  <div class="tabs-container tabs-container-theme">
+    <anms-tab-item *ngFor="let tabItem of tabItems; let i = index;"
+                   [icon]="tabItem.icon"
+                   [text]="tabItem.text"
+                   [active]="tabItem.active"
+                   (click)="selectTab(i)"
+    ></anms-tab-item>
+  </div>
+  <div class="tabs-content-container tabs-container-border-theme" (swipeleft)="swipeDelta(1)" (swiperight)="swipeDelta(-1)">
+    <div class="content-cotainer" *ngIf="activetabId==0">
+      <ng-content select="[tab1]"></ng-content>
+    </div>
+    <div class="content-cotainer" *ngIf="activetabId==1">
+      <ng-content select="[tab2]"></ng-content>
+    </div>
+    <div class="content-cotainer" *ngIf="activetabId==2">
+      <ng-content select="[tab3]"></ng-content>
+    </div>
+  </div>
+  <div class="tabs-footer tabs-container-theme">
+    <div class="tabs-swipe-left">
+      <button mat-icon-button mat-flat-button (click)="swipeDelta(-1)">
+        <fa-icon icon="angle-double-left"></fa-icon>
+      </button>
+    </div>
+    <div class="tabs-swipe-text">
+        (Swipe)
+    </div>
+    <div class="tabs-swipe-right" (click)="swipeDelta(1)">
+      <button mat-icon-button mat-flat-button>
+        <fa-icon icon="angle-double-right"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>

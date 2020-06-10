@@ -1,0 +1,8 @@
+<div class="tab-item-container" [class.active]="active">
+  <div class="tab-item-icon-content">
+    <fa-icon [icon]="icon"></fa-icon>
+  </div>
+  <div class="tab-item-text-content" [hidden]="!active">
+    {{ text }}
+  </div>
+</div>

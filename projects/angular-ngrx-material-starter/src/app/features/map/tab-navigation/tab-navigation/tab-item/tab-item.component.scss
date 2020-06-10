@@ -1,0 +1,87 @@
+//.tab-item-container {
+//  display: flex;
+//  flex-wrap: nowrap;
+//  align-items: center;
+//  background-color: red;
+//  color: white;
+//  padding: 10px 5px;
+//  border-top-left-radius: 10px;
+//  border-top-right-radius: 10px;
+//
+//
+//  &:hover {
+//    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+//    // box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 2px 0 rgba(0, 0, 0, 0.19);
+//
+//    .tab-item-icon-content {
+//      // color: grey;
+//      border-color: white;
+//      font-size: 18px;
+//      padding: 2px 4px;
+//    }
+//  }
+//  &:focus {
+//    .tab-item-icon-content {
+//      font-size: 17px;
+//      border-color: white;
+//      padding: 2px 4px;
+//    }
+//  }
+//
+//  &.active {
+//
+//    background-color: white;
+//    color: red;
+//
+//    .tab-item-icon-content {
+//      border-color: white;
+//
+//
+//    }
+//
+//    &:focus {
+//      .tab-item-icon-content {
+//        font-size: 16px;
+//        padding: 4px 5px;
+//      }
+//    }
+//
+//    &:hover {
+//      .tab-item-icon-content {
+//        font-size: 16px;
+//        padding: 4px 5px;
+//      }
+//    }
+//  }
+//
+//
+//    //&:first-of-type {
+//    //  &.active {
+//    //    border-top-left-radius: 0;
+//    //    border-top-right-radius: 10px;
+//    //  }
+//    //}
+//    //
+//    //&:last-of-type {
+//    //  &.active {
+//    //    border-top-left-radius: 10px;
+//    //    border-top-right-radius: 0;
+//    //  }
+//    //}
+//
+//    .tab-item-icon-content {
+//      display: flex;
+//      border-bottom-width: 2px;
+//      border-bottom-style: solid;
+//      border-color: red;
+//      padding: 4px 5px;
+//
+//    }
+//    .tab-item-text-content {
+//      display: flex;
+//      text-wrap: avoid;
+//      word-break: break-word;
+//    }
+//  }
+//
+//

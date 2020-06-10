@@ -1,5 +1,15 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Inject
+} from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+
+export interface RecyclablesDialogData {
+  selectedCategories: number[];
+  selectedCustom: string;
+}
 
 @Component({
   selector: 'anms-types-recycable-dialog',
@@ -9,7 +19,12 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class TypesRecycableDialogComponent implements OnInit {
   searchTerm = '';
-  custom = { name: '', isSelected: false };
+  custom = {
+    name: '',
+    isSelected: false,
+    icon: 'highlighter',
+    isCategory: false
+  };
   selectedCategories: any[] = [];
   filteredElements: any[] = [];
 
@@ -333,10 +348,28 @@ export class TypesRecycableDialogComponent implements OnInit {
     }
   ];
 
-  constructor(private dialogRef: MatDialogRef<TypesRecycableDialogComponent>) {}
+  constructor(
+    private dialogRef: MatDialogRef<TypesRecycableDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: RecyclablesDialogData
+  ) {}
 
   ngOnInit(): void {
-    this.filteredElements = this.allElements.filter(elem => elem.isCategory);
+    console.log(this.data);
+    if (this.data.selectedCategories) {
+      this.data.selectedCategories.forEach(categoryId =>
+        this.onSelect({ categoryId })
+      );
+    }
+
+    if (this.data.selectedCustom) {
+      this.custom.name = this.data.selectedCustom;
+      this.custom.isSelected = true;
+      this.searchTerm = this.custom.name; // to fix toggle
+    }
+
+    this.filteredElements = this.allElements
+      .filter(elem => elem.isCategory)
+      .filter(elem => this.filterElemByCategory(elem));
   }
 
   changeFilter(searchTerm) {
@@ -379,6 +412,7 @@ export class TypesRecycableDialogComponent implements OnInit {
   // }
 
   clearFilter() {
+    // @TODO add clear button in search bar
     this.searchTerm = '';
     this.filteredElements = this.allElements
       .filter(elem => elem.isCategory)
@@ -416,7 +450,28 @@ export class TypesRecycableDialogComponent implements OnInit {
     this.changeFilter(this.searchTerm);
   }
 
-  onNoClick() {}
+  onNoClick() {
+    if (
+      (this.data.selectedCustom && this.data.selectedCustom !== '!') ||
+      (this.data.selectedCategories && this.data.selectedCategories.length > 0)
+    ) {
+      this.dialogRef.close(this.data);
+    } else {
+      this.dialogRef.close();
+    }
+  }
 
-  onYesClick() {}
+  onYesClick() {
+    const selection: RecyclablesDialogData = {
+      selectedCategories: [],
+      selectedCustom: ''
+    };
+    selection.selectedCategories = this.selectedCategories.map(
+      cat => cat.categoryId
+    );
+    if (this.custom.isSelected) {
+      selection.selectedCustom = this.custom.name;
+    }
+    this.dialogRef.close(selection);
+  }
 }

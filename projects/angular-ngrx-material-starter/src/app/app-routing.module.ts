@@ -35,6 +35,18 @@ const routes: Routes = [
       import('./features/map/map.module').then(m => m.MapModule)
   },
   {
+    path: 'catalog',
+    loadChildren: () =>
+      import('./features/catalog/catalog.module').then(m => m.CatalogModule)
+  },
+  {
+    path: 'test',
+    loadChildren: () =>
+      import('./features/map/tab-navigation/tab-navigation.module').then(
+        m => m.TabNavigationModule
+      )
+  },
+  {
     path: '**',
     redirectTo: 'about'
   }

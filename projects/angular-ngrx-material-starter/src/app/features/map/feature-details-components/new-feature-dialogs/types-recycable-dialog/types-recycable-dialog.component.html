@@ -11,7 +11,6 @@
 </div>
 
 <div mat-dialog-content class="chip-list-container">
-  <p>Doar categoria va fi selectata</p>
   <mat-chip-list  [selectable]="false" cdkFocusInitial>
     <mat-chip *ngIf="custom.isSelected || searchTerm !== ''"
               class="my-chip custom"
@@ -22,7 +21,7 @@
               [matTooltip]="custom.isSelected ? custom.name : searchTerm">
       <div class="chip-content-container">
         <div class="chip-content-name">
-          <fa-icon [icon]="custom.isSelected ? 'dot-circle' : 'highlighter'" class="inline-icon"></fa-icon>
+          <fa-icon [icon]="custom.isSelected ? 'highlighter' : 'highlighter'" class="inline-icon"></fa-icon>
           {{custom.isSelected ? custom.name : searchTerm}}
         </div>
         <div class="chip-content-icon">

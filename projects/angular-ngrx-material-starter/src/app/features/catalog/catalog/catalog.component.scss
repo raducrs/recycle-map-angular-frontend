@@ -1,0 +1,23 @@
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  .card-content {
+    display: flex;
+  }
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+.ad {
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 100%;
+  height: 400px;
+}
+
+.no-ad {
+  display: none !important;
+}

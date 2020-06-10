@@ -1,0 +1,35 @@
+// https://www.gavsblog.com/blog/for-each-while-loops-sass-scss
+// https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
+$paleteColours: (
+  'light-blue-1': (
+    #3487f7,
+    white
+  ),
+  'red-1': (
+    #d64651,
+    white
+  ),
+  'orange-1': (
+    #e55937,
+    white
+  )
+);
+
+@each $colorName, $colors in $paleteColours {
+  $bgcolor: nth($colors, 1);
+  $fontcolor: nth($colors, 2);
+
+  .bg-contrast-#{$colorName} {
+    background-color: $bgcolor !important;
+    color: $fontcolor !important;
+  }
+  .fg-contrast-#{$colorName} {
+    color: $fontcolor !important;
+  }
+  .bg-#{$colorName} {
+    background-color: $bgcolor !important;
+  }
+  .fg-#{$colorName} {
+    color: $bgcolor !important;
+  }
+}
