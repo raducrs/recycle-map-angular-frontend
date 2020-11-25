@@ -72,7 +72,7 @@ import {
   faSortNumericDown,
   faSortAmountDown,
   faSortAlphaDown,
-  faSort
+  faSort, faForward, faListUl
 } from '@fortawesome/free-solid-svg-icons';
 import { faMediumM, faGithub } from '@fortawesome/free-brands-svg-icons';
 
@@ -237,10 +237,12 @@ export class SharedModule {
       faChevronLeft,
       faChevronRight,
       faReply,
+      faListUl,
       faSortAlphaDown,
       faSortNumericDown,
       faSortAmountDown,
-      faSort
+      faSort,
+      faFilter
     );
   }
 }

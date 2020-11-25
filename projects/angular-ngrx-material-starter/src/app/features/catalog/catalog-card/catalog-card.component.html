@@ -9,12 +9,12 @@
 
   <div class="action-bar transition-long">
     <button mat-mini-fab color="primary" [ngClass]="'bg-contrast-'+cardContent?.color"
-            *ngIf="optionsOpened">
+            *ngIf="optionsOpened" (click)="goToDetail(cardContent?.id)">
       <fa-icon icon="reply"></fa-icon>
     </button>
     <button mat-mini-fab color="primary" [ngClass]="'bg-contrast-'+cardContent?.color"
             *ngIf="optionsOpened">
-      <fa-icon icon="map-marked-alt"></fa-icon>
+      <fa-icon icon="map-marked-alt" (click)="goToMap(cardContent?.id)"></fa-icon>
     </button>
     <button mat-mini-fab color="primary" [ngClass]="'bg-contrast-'+cardContent?.color" (click)="optionsOpened = !optionsOpened">
       <fa-icon icon="chevron-left" [hidden]="optionsOpened"></fa-icon>
@@ -43,7 +43,7 @@
 
   <div class="rounded-bottom theme-bg-color card-footer transition-long" [ngClass]="'bg-contrast-'+cardContent?.color">
     <div><fa-icon icon="map-marker-alt"></fa-icon> {{ cardContent?.stats }}</div>
-    <div class="follow transition" [ngClass]="'bg-contrast-'+cardContent?.color">
+    <div class="follow transition" [ngClass]="'bg-contrast-'+cardContent?.color" (click)="goToDetail(cardContent?.id)">
       <fa-icon style=" margin-bottom: 40px; margin-right: 30px;" icon="reply"></fa-icon>
     </div>
   </div>

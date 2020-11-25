@@ -39,6 +39,9 @@ export class UserTabComponent implements OnInit {
 
   loginUser() {
     this.userNotLoggedin = false;
+
+    // use openAll() & closeAll() when multi set to true
+    // https://www.freakyjolly.com/angular-material-expansion-panel-accordion-in-angular-project-using-material/#.Xt14WrziuUl
     this.userPanel.close();
   }
 }

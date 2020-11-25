@@ -1,0 +1,33 @@
+<anms-layout2>
+  <div class="catalog-detail-container" firstContent>
+    <div class="header-container">
+      <div class="header-title-container">
+        <div class="header-title col-12 col-md-8 col-lg-12" [ngClass]="'bg-contrast-'+cardDisplay?.color" >
+          <h2>{{ cardDisplay.title }}</h2>
+        </div>
+        <div class="header-image col-md-4 col-lg-12 d-none d-md-block"><img class="landscape" [src]="cardDisplay.img" /></div>
+      </div>
+      <div class="header-toolbar" [ngClass]="'bg-contrast-'+cardDisplay?.color">
+        <div class="available-container button-display spacer">
+          <fa-icon [icon]="getIconForType(cardDisplay.type)"></fa-icon>
+        </div>
+        <div class="available-container button-display spacer grow">
+          <fa-icon icon="map-marker-alt"></fa-icon>
+          <span> {{ cardDisplay.stats }}</span>
+        </div>
+        <div class="available-container button-display spacer grow" (click)="goToMap()">
+          <fa-icon icon="map-marked-alt"></fa-icon>
+          <span class="no-mobile-text"> Harta </span>
+        </div>
+        <div class="available-container button-display spacer" (click)="goBack()">
+          <fa-icon icon="list-ul"></fa-icon>
+          <span class="no-mobile-text"> Inapoi </span>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-container-body">
+      <h3> Cum se recicleaza </h3>
+      <p>{{ cardDisplay.description }}</p>
+    </div>
+  </div>
+</anms-layout2>

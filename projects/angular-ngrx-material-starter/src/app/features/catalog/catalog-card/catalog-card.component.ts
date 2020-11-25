@@ -7,6 +7,16 @@ import {
   ElementRef
 } from '@angular/core';
 import { CardContent } from '../card-content';
+import {Router} from '@angular/router';
+
+// based on
+// - http://materialdesignblog.com/10-material-design-cards-for-web-in-css-html/
+//   https://codepen.io/knolaust/pen/bNvZRQ
+// - https://mdbootstrap.com/docs/jquery/components/cards/#!
+
+// isues with hover and mobile devices
+// https://www.prowebdesign.ro/how-to-deal-with-hover-on-touch-screen-devices/
+// https://bitsofco.de/when-do-the-hover-focus-and-active-pseudo-classes-apply/
 
 @Component({
   selector: 'anms-catalog-card',
@@ -33,7 +43,7 @@ export class CatalogCardComponent implements OnInit {
   optionsOpened = false;
   followClick = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -54,5 +64,13 @@ export class CatalogCardComponent implements OnInit {
 
   isVisible(e) {
     return !!(e.offsetWidth || e.offsetHeight || e.getClientRects().length);
+  }
+
+  goToDetail(cardId){
+    this.router.navigate(['catalog',  cardId]);
+  }
+
+  goToMap(cardId){
+    this.router.navigate(['map'], {queryParams: { filter: cardId}});
   }
 }

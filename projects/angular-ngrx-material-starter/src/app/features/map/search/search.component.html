@@ -1,11 +1,18 @@
 <div class="entry">
   <div class="search-input">
-    <anms-search-input rtl [placeholder]="'anms.map.search.placeholder' | translate" [value]="searchTerm" (keyup)="searchHint($event.target.value)"
+    <anms-search-input rtl [placeholder]="placeHolderValue" [value]="searchTerm" (keyup)="searchHint($event.target.value)"
                        (keyup.enter)="search()" (keyup.escape)="clearSearch()" (onFocus)="searchBarFocused()">
       <fa-icon icon="search"></fa-icon>
+      <span class="filter-btn" [class.active-filter]="filterActive" (click)="toggleFilterShow()"><fa-icon icon="filter"></fa-icon></span>
     </anms-search-input>
   </div>
   <div *ngIf="showHints" class="hints-container">
+    <mat-option class="hint-row" *ngFor="let category of categoryHints | async | slice:0:1"  (click)="categorySelected(category)">
+      <div>
+        <fa-icon [class.active-filter]="filterIsActive(category)" icon="filter"></fa-icon>
+        {{ filterIsActive(category) ? 'Dezactiveaza' : 'Activeaza' }} {{ category.text }}
+      </div>
+    </mat-option>
     <mat-option *ngFor="let searchHint of searchHints | async" class="hint-row">
       <div (click)="hintSelected(searchHint)">
         <img *ngIf="searchHint.icon" aria-hidden [src]="searchHint.icon" height="24" width="24"/>
@@ -14,5 +21,8 @@
       </div>
 
     </mat-option>
+  </div>
+  <div *ngIf="showFilterOptions" class="hints-container">
+    <anms-search-filter-dropdown (close)="showFilterOptions=false"></anms-search-filter-dropdown>
   </div>
 </div>

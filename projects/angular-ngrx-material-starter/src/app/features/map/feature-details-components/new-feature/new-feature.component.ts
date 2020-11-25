@@ -33,6 +33,7 @@ export class NewFeatureComponent implements OnInit, DetailsComponent {
 
   onAddNew() {
     if (window.innerWidth < 720) {
+      // https://stackoverflow.com/questions/35279291/angular2-how-to-find-out-what-was-previous-page-url-when-using-angular2-routing
       const pathSplits = this.location.path().split('?');
       const state = {};
       if (pathSplits.length > 1) {
@@ -46,6 +47,7 @@ export class NewFeatureComponent implements OnInit, DetailsComponent {
         });
       }
 
+      // https://stackoverflow.com/a/54365098
       this.router.navigate(['map', 'feature', 'new'], { state });
     } else {
       const dialogRef = this.dialog.open(NewFeatureDialogComponent, {});

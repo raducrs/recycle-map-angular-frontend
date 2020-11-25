@@ -1,67 +1,75 @@
-import {
-  Component,
-  OnInit,
-  ChangeDetectionStrategy,
-  HostListener,
-  OnDestroy
-} from '@angular/core';
-import { CardContent } from '../card-content';
-import {
-  CatalogDataSource,
-  CatalogSourceWrapper
-} from '../catalog-data-source';
-import { DataSource } from '@angular/cdk/collections';
-import {
-  FixedSizeVirtualScrollStrategy,
-  VIRTUAL_SCROLL_STRATEGY
-} from '@angular/cdk/scrolling';
+import {ChangeDetectionStrategy, Component, HostListener, OnDestroy, OnInit} from '@angular/core';
+import {CardContent} from '../card-content';
+
+export interface CatalogSourceWrapper {
+  cardContent?: CardContent;
+  isAd?: boolean;
+}
+
+export const availableDisplayCards: CardContent[] = [
+  {
+    id: '0',
+    title: 'Hartie / Carton',
+    description:
+      "Some quick example text to build on the card title and make up the bulk of the card's\n" +
+      '      content. long long text long long text long long text. twice as long and growing longer maybe someday\n' +
+      '    will be even three times bigger',
+    stats: '1234',
+    type: 'recycle',
+    color: 'red-1',
+    img: 'https://mdbootstrap.com/img/Photos/Others/food.jpg'
+  },
+  {
+    id: '1',
+    title: 'Plastic',
+    description:
+      "Some quick example text to build on the card title and make up the bulk of the card's\n" +
+      '      content. long long text long long text long long text. twice as long and growing longer maybe someday\n' +
+      '    will be even three times bigger',
+    stats: '1234',
+    type: 'recycle',
+    color: 'light-blue-1',
+    img: 'https://mdbootstrap.com/img/Photos/Others/food.jpg'
+  },
+  {
+    id: '2',
+    title: 'Sticla',
+    description:
+      "Some quick example text to build on the card title and make up the bulk of the card's\n" +
+      '      content. long long text long long text long long text. twice as long and growing longer maybe someday\n' +
+      '    will be even three times bigger',
+    stats: '1234',
+    type: 'recycle',
+    color: 'orange-1',
+    img: 'https://mdbootstrap.com/img/Photos/Others/food.jpg'
+  },
+  {
+    id: '3',
+    title: 'Donatie haine',
+    description:
+      "Some quick example text to build on the card title and make up the bulk of the card's\n" +
+      '      content. long long text long long text long long text. twice as long and growing longer maybe someday\n' +
+      '    will be even three times bigger',
+    stats: '1234',
+    type: 'recycle',
+    color: 'orange-1',
+    img: 'https://mdbootstrap.com/img/Photos/Others/food.jpg'
+  }
+];
+// @TODO better infinite scroll
+// https://netbasal.com/build-an-infinite-scroll-component-in-angular-a9c16907a94d
+// https://github.com/orizens/ngx-infinite-scroll
+// https://www.c-sharpcorner.com/article/implement-infinite-scrolling-using-angular-6/
+// * https://codeburst.io/angular-2-simple-infinite-scroller-directive-with-rxjs-observables-a989b12d4fb1
 
 @Component({
   selector: 'anms-catalog',
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss'],
   changeDetection: ChangeDetectionStrategy.Default
-  // providers: [{provide: VIRTUAL_SCROLL_STRATEGY, useClass: FixedSizeVirtualScrollStrategy}]
 })
 export class CatalogComponent implements OnInit, OnDestroy {
-  availableDisplayCards: CardContent[] = [
-    {
-      id: '0',
-      title: 'Card title long long long long long long',
-      description:
-        "Some quick example text to build on the card title and make up the bulk of the card's\n" +
-        '      content. long long text long long text long long text. twice as long and growing longer maybe someday\n' +
-        '    will be even three times bigger',
-      stats: '1234',
-      type: 'recycle',
-      color: 'red-1',
-      img: 'https://mdbootstrap.com/img/Photos/Others/food.jpg'
-    },
-    {
-      id: '0',
-      title: 'Hartie',
-      description:
-        "Some quick example text to build on the card title and make up the bulk of the card's\n" +
-        '      content. long long text long long text long long text. twice as long and growing longer maybe someday\n' +
-        '    will be even three times bigger',
-      stats: '1234',
-      type: 'recycle',
-      color: 'light-blue-1',
-      img: 'https://mdbootstrap.com/img/Photos/Others/food.jpg'
-    },
-    {
-      id: '0',
-      title: 'Plastic',
-      description:
-        "Some quick example text to build on the card title and make up the bulk of the card's\n" +
-        '      content. long long text long long text long long text. twice as long and growing longer maybe someday\n' +
-        '    will be even three times bigger',
-      stats: '1234',
-      type: 'recycle',
-      color: 'orange-1',
-      img: 'https://mdbootstrap.com/img/Photos/Others/food.jpg'
-    }
-  ];
+
 
   displayCards: CatalogSourceWrapper[] = [];
 
@@ -111,10 +119,10 @@ export class CatalogComponent implements OnInit, OnDestroy {
     const result = [];
     for (let i = 0; i < left; i++) {
       const index = Math.floor(
-        Math.random() * this.availableDisplayCards.length
+        Math.random() * availableDisplayCards.length
       );
       result.push({
-        cardContent: this.availableDisplayCards[index],
+        cardContent: availableDisplayCards[index],
         isAd: false
       });
     }

@@ -17,6 +17,7 @@ import { TabNavigationModule } from './tab-navigation/tab-navigation.module';
 import { AdaptableStepperComponent } from './feature-details-components/new-feature-dialogs/adaptable-stepper/adaptable-stepper.component';
 import { LocationTabComponent } from './feature-details-components/new-feature-dialogs/location-tab/location-tab.component';
 import { NewFeatureDialogsModule } from './feature-details-components/new-feature-dialogs/new-feature-dialogs.module';
+import { SearchFilterDropdownComponent } from './search-filter-dropdown/search-filter-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NewFeatureDialogsModule } from './feature-details-components/new-featur
     PoiPopupComponent,
     SearchComponent,
     SearchInputComponent,
-    NewFeatureComponent
+    NewFeatureComponent,
+    SearchFilterDropdownComponent
   ],
   imports: [
     CommonModule,

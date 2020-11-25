@@ -8,6 +8,7 @@
       <div  *ngFor="let card of displayCards" class="card-content col-12 col-sm-6 col-md-6 col-lg-4 no-padding"
            [class.ad]="card?.isAd && smallScreen" [class.no-ad]="card?.isAd && !this.smallScreen">
         <div *ngIf="!card?.isAd">
+          <a [href]="'card-'+card?.cardContent?.id"></a>
           <anms-catalog-card  [cardContent]="card?.cardContent">
           </anms-catalog-card>
         </div>
@@ -18,18 +19,5 @@
     </div>
   </div>
 
-<!--  https://material.angular.io/cdk/scrolling/overview-->
-<!--  https://fireship.io/lessons/infinite-virtual-scroll-angular-cdk/-->
-<!--  <cdk-virtual-scroll-viewport itemSize="400" class="cards-container">-->
-<!--    <div *cdkVirtualFor="let card of ds" >-->
-<!--      <anms-catalog-card  class="card-content col-12 col-sm-6 col-md-6 col-lg-4 no-padding"-->
-<!--                          *ngIf="card?.cardContent" [cardContent]="card?.cardContent">-->
-
-<!--      </anms-catalog-card>-->
-<!--      <div *ngIf="!card?.cardContent" style="width:100%; height: 400px">-->
-<!--        add here-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </cdk-virtual-scroll-viewport >-->
 
 </anms-layout2>
