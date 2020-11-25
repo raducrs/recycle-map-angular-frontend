@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Angular 8, NgRx and Angular Material Starter
 
 by [@tomastrajan](https://twitter.com/tomastrajan)
@@ -200,3 +201,7 @@ Get started by checking out list of open [issues](https://github.com/tomastrajan
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+=======
+# recycle-map-angular-frontend
+Recycle Map Angular 9 frontend using OpenStreetMap
+>>>>>>> 64773a07132e8558d55d7486e3d1f3b941ec0ab6
