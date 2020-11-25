@@ -12,9 +12,11 @@ Recycling Map Angular 9 frontend using OpenStreetMap
 - Infinite cards list
 - Adaptive cards
 
+Contributions in [map module](projects/angular-ngrx-material-starter/src/app/features/map)
+
 ## Demo 
 
-#### [Live Static Demo](http://recycle-map.s3-website.eu-central-1.amazonaws.com/v1/index.html)
+#### [Live Static Demo](http://recycle-map.s3-website.eu-central-1.amazonaws.com/v1/index.html) (Catalog and Map)
 
 #### Highlits
 
@@ -24,4 +26,4 @@ Map | Dialog
 Infinite cards | Adaptive cards
 ![cards](https://github.com/raducrs/recycle-map-angular-frontend/blob/main/meta-assets/cards.png) | ![cards2](https://github.com/raducrs/recycle-map-angular-frontend/blob/main/meta-assets/cards2.png)
 
-
+#### Based on [Tomas Trajan NgRx and Angular Material Starter](https://github.com/tomastrajan/angular-ngrx-material-starter)
