@@ -23,7 +23,6 @@ Contributions in [map module](projects/angular-ngrx-material-starter/src/app/fea
 Map | Dialog
 --- | ---
 ![map](https://github.com/raducrs/recycle-map-angular-frontend/blob/main/meta-assets/map.png) | ![search-recycle](https://github.com/raducrs/recycle-map-angular-frontend/blob/main/meta-assets/search-recycle.png)
-Infinite cards | Adaptive cards
-![cards](https://github.com/raducrs/recycle-map-angular-frontend/blob/main/meta-assets/cards.png) | ![cards2](https://github.com/raducrs/recycle-map-angular-frontend/blob/main/meta-assets/cards2.png)
-
+Adaptive cards | Infinite cards list
+![cards2](https://github.com/raducrs/recycle-map-angular-frontend/blob/main/meta-assets/cards2.png) | ![cards](https://github.com/raducrs/recycle-map-angular-frontend/blob/main/meta-assets/cards.png)
 #### Based on [Tomas Trajan NgRx and Angular Material Starter](https://github.com/tomastrajan/angular-ngrx-material-starter)
